@@ -24,9 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
             borderRadius: BorderRadius.circular(10),
           ),
           tileColor: Colors.white,
-          selectedColor: Color.fromARGB(255, 200, 56, 56),
-          selectedTileColor: Color.fromARGB(255, 220, 37, 13).withOpacity(.5),
-          textColor: Color.fromARGB(255, 183, 10, 18),
+          selectedColor: const Color.fromARGB(255, 200, 56, 56),
+          selectedTileColor:
+              const Color.fromARGB(255, 220, 37, 13).withOpacity(.5),
+          textColor: const Color.fromARGB(255, 183, 10, 18),
         ),
       ),
       // enableOnlySingleSelection: true,

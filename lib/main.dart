@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/Screen/splash_screen.dart';
+
+import 'allinone.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: splash_screen(),
+      //home: splash_screen(),
+      home: HomePage(),
     );
   }
 }

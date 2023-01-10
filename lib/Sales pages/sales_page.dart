@@ -3,8 +3,6 @@ import 'package:sales_app/Model_class/sales_user_model_class.dart';
 import 'package:sales_app/Sales%20pages/add_product.dart';
 import 'package:sales_app/Sales%20pages/Search_&_Filter/filter.dart';
 import 'package:sales_app/Sales%20pages/createnewcustomer.dart';
-import 'package:sales_app/Sales%20pages/sales_order_details.dart';
-import 'package:sales_app/Setting%20pages/setting.dart';
 import 'package:sales_app/Sales%20pages/sales_widget.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 

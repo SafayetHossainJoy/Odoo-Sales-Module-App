@@ -6,9 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:sales_app/Sales%20pages/sales_page.dart';
 import 'package:sales_app/widgets/band_color.dart';
-import 'package:sales_app/widgets/custom_textfor_customer.dart';
 import 'package:sales_app/widgets/widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProductInfo extends StatefulWidget {
   const ProductInfo({Key? key}) : super(key: key);

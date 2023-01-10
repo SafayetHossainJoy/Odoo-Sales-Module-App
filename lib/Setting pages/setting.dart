@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:sales_app/Login%20screen/login.dart';
 import 'package:sales_app/Setting%20pages/pages/AboutUs.dart';
@@ -20,8 +18,8 @@ class _SettingState extends State<Setting> {
   isLogout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('token');
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (BuildContext ctx) => LoginPage()));
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext ctx) => const LoginPage()));
   }
 
   @override

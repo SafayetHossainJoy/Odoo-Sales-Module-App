@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sales_app/Sales%20pages/sales_page.dart';
 import 'package:sales_app/widgets/band_color.dart';
-import 'package:sales_app/widgets/custom_TextField.dart';
 
 class Review extends StatefulWidget {
   const Review({Key? key}) : super(key: key);

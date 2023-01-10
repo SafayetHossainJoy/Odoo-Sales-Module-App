@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_speed_dial/simple_speed_dial.dart';
 
 class sales_widget extends StatelessWidget {
   const sales_widget({
