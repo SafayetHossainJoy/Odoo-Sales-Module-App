@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/navigation/sales/sales_page.dart';
+import 'package:sales_app/Sales%20pages/sales_page.dart';
 
 class Privacy extends StatefulWidget {
   const Privacy({super.key});
@@ -35,7 +35,7 @@ class _PrivacyState extends State<Privacy> {
           children: [
             Container(
               child: Image.asset(
-                "images/robot.jpg",
+                "assets/images/robot.jpg",
                 height: 200,
                 width: 370,
               ),

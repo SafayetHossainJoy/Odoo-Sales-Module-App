@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/model_class/sales_model_class.dart';
-import 'package:sales_app/screens/navigation/sales/Add_Product.dart';
-import 'package:sales_app/screens/navigation/sales/createnewcustomer.dart';
-import 'package:sales_app/screens/navigation/setting/setting.dart';
-import 'package:sales_app/widgets/sales_widget.dart';
+import 'package:sales_app/Model_class/sales_user_model_class.dart';
+import 'package:sales_app/Sales%20pages/add_product.dart';
+import 'package:sales_app/Sales%20pages/Search_&_Filter/filter.dart';
+import 'package:sales_app/Sales%20pages/createnewcustomer.dart';
+import 'package:sales_app/Sales%20pages/sales_order_details.dart';
+import 'package:sales_app/Setting%20pages/setting.dart';
+import 'package:sales_app/Sales%20pages/sales_widget.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 
 class sales extends StatefulWidget {
@@ -23,36 +25,39 @@ class _salesState extends State<sales> {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))),
           leading: InkWell(
-              child: const Icon(Icons.search_rounded),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
-              }),
+            child: const Icon(Icons.search_rounded),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ));
+            },
+          ),
           title: InkWell(
-              child: const Text("Search"),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
-              }),
+            child: const Text("Search"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ));
+            },
+          ),
           actions: [
             InkWell(
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Icon(Icons.filter_alt_outlined),
-                ),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Setting(),
-                      ));
-                }),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Icon(Icons.filter_alt_outlined),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyHomePage(title: 'Filter'),
+                    ));
+              },
+            ),
           ],
         ),
         body: ListView.builder(
@@ -61,11 +66,11 @@ class _salesState extends State<sales> {
               return InkWell(
                 child: const sales_widget(),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Setting(),
-                      ));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const OrderPage(),
+                  //     ));
                 },
               );
             }),

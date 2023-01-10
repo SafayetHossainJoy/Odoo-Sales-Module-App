@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/navigation/sales/Add_Product.dart';
+import 'package:sales_app/Sales%20pages/add_product.dart';
 import 'package:sales_app/widgets/custom_textfor_customer.dart';
 
 class CreateNewCustomer extends StatefulWidget {

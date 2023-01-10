@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/model_class/sales_model_class.dart';
-import 'package:sales_app/screens/navigation/setting/setting.dart';
-import 'package:sales_app/widgets/delivery_widget%20copy.dart';
+import 'package:sales_app/Model_class/sales_user_model_class.dart';
+import 'package:sales_app/Sales%20pages/Search_&_Filter/filter.dart';
+import 'package:sales_app/Delivery%20pages/delivery_widget%20copy.dart';
 
 class Delivery extends StatefulWidget {
   const Delivery({super.key});
@@ -24,17 +24,18 @@ class _DeliveryState extends State<Delivery> {
                 fontWeight: FontWeight.bold)),
         actions: [
           InkWell(
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Icon(Icons.filter_alt_outlined),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
-              }),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Icon(Icons.filter_alt_outlined),
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ));
+            },
+          ),
         ],
       ),
       body: ListView.builder(
@@ -43,11 +44,11 @@ class _DeliveryState extends State<Delivery> {
             return InkWell(
               child: const delivery_widget(),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Setting(),
+                //     ));
               },
             );
           }),

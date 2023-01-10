@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sales_app/screens/navigation/sales/sales_page.dart';
+import 'package:sales_app/Sales%20pages/sales_page.dart';
 import 'package:sales_app/widgets/band_color.dart';
 import 'package:sales_app/widgets/custom_TextField.dart';
 
@@ -95,7 +95,7 @@ class _ReviewState extends State<Review> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                "images/Trivoz.png",
+                "assets/images/Trivoz.png",
                 height: 120,
               ),
               Padding(

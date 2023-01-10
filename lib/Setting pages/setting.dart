@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/navigation/setting/pages/AboutUs.dart';
-import 'package:sales_app/screens/navigation/setting/pages/ContactUs.dart';
-import 'package:sales_app/screens/navigation/setting/pages/Privacy_Policy.dart';
-import 'package:sales_app/screens/navigation/setting/pages/Feedback.dart';
-import 'package:sales_app/screens/splash_screen.dart';
+import 'package:sales_app/Login%20screen/login.dart';
+import 'package:sales_app/Setting%20pages/pages/AboutUs.dart';
+import 'package:sales_app/Setting%20pages/pages/ContactUs.dart';
+import 'package:sales_app/Setting%20pages/pages/Privacy_Policy.dart';
+import 'package:sales_app/Setting%20pages/pages/Feedback.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Setting extends StatefulWidget {
   const Setting({super.key});
@@ -13,19 +16,22 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  late SharedPreferences sharedPreferences;
+  isLogout() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('token');
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext ctx) => LoginPage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 202, 65, 65),
+        backgroundColor: const Color.fromARGB(193, 255, 82, 82),
+        automaticallyImplyLeading: false,
         elevation: 10,
         centerTitle: true,
-        leading: InkWell(
-            child: const Icon(
-              Icons.settings,
-              color: Color.fromARGB(255, 202, 65, 65),
-            ),
-            onTap: () {}),
         title: const Text("Settings"),
       ),
       body: SingleChildScrollView(
@@ -39,7 +45,7 @@ class _SettingState extends State<Setting> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(100.0),
                 child: Image.asset(
-                  "images/Trivozlogo.jpg",
+                  "assets/images/Trivozlogo.jpg",
                   width: 80,
                   height: 80,
                   fit: BoxFit.fill,
@@ -55,7 +61,7 @@ class _SettingState extends State<Setting> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Montserrat',
-                          color: Color.fromARGB(221, 112, 94, 94))),
+                          color: Colors.black)),
                   TextSpan(
                       text: "sales@gmail.com",
                       style: TextStyle(
@@ -159,21 +165,25 @@ class _SettingState extends State<Setting> {
                 height: 15,
               ),
               ListTile(
-                  leading: const Icon(Icons.power_settings_new),
-                  title: new Text(
-                    "Logout",
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const splash_screen(),
-                        ));
-                  }),
+                leading: const Icon(Icons.power_settings_new),
+                title: new Text(
+                  "Logout",
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500),
+                ),
+                onTap: () {
+                  isLogout();
+                },
+                // onTap: () {
+                //   Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => const splash_screen(),
+                //       ));
+                // }
+              ),
             ],
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:contactus/contactus.dart';
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/navigation/sales/sales_page.dart';
+import 'package:sales_app/Sales%20pages/sales_page.dart';
 
 // ignore: camel_case_types
 class Contact_Us extends StatefulWidget {
@@ -43,7 +43,7 @@ class _Contact_UsState extends State<Contact_Us> {
       body: ContactUs(
         cardColor: Colors.white,
         textColor: Colors.redAccent,
-        logo: const AssetImage("images/Trivozlogo.jpg"),
+        logo: const AssetImage("assets/images/Trivozlogo.jpg"),
         email: 'contact@trivoz.com.bd',
         companyName: 'Trivoz',
         companyColor: Colors.redAccent,

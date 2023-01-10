@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/splash_screen.dart';
+import 'package:sales_app/Screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: splash_screen());
+      debugShowCheckedModeBanner: false,
+      home: splash_screen(),
+    );
   }
 }

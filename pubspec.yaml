@@ -46,6 +46,9 @@ dependencies:
   simple_speed_dial: ^0.1.7
   google_fonts: ^3.0.1
   fluttertoast: ^8.1.2
+  filter_list: ^1.0.2
+  json_annotation: ^4.7.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

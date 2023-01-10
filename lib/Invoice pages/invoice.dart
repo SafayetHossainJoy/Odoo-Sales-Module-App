@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/model_class/sales_model_class.dart';
-import 'package:sales_app/screens/navigation/setting/setting.dart';
-import 'package:sales_app/widgets/invoice_widget.dart';
+import 'package:sales_app/Model_class/sales_user_model_class.dart';
+import 'package:sales_app/Sales%20pages/Search_&_Filter/filter.dart';
+import 'package:sales_app/Setting%20pages/setting.dart';
+import 'package:sales_app/Invoice%20pages/invoice_widget.dart';
 
 class Invoice extends StatefulWidget {
   const Invoice({super.key});
@@ -24,17 +25,18 @@ class _InvoiceState extends State<Invoice> {
                 fontWeight: FontWeight.bold)),
         actions: [
           InkWell(
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Icon(Icons.filter_alt_outlined),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
-              }),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Icon(Icons.filter_alt_outlined),
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ));
+            },
+          ),
         ],
       ),
       body: ListView.builder(
@@ -43,11 +45,11 @@ class _InvoiceState extends State<Invoice> {
             return InkWell(
               child: invoice_widget(),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Setting(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Setting(),
+                //     ));
               },
             );
           }),

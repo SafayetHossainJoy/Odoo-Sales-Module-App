@@ -4,10 +4,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:sales_app/screens/navigation/sales/sales_page.dart';
+import 'package:sales_app/Sales%20pages/sales_page.dart';
 import 'package:sales_app/widgets/band_color.dart';
 import 'package:sales_app/widgets/custom_textfor_customer.dart';
 import 'package:sales_app/widgets/widget.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'Multiple options/product_info.dart';
+import 'Multiple options/product_widget.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({Key? key}) : super(key: key);
@@ -23,16 +26,15 @@ class _AddProductState extends State<AddProduct> {
   TextEditingController pricelistController = TextEditingController();
   TextEditingController globaldiscountController = TextEditingController();
   TextEditingController termsandconditionsController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  // idController = TextEditingController();
-  TextEditingController descriptionController = TextEditingController();
+  // TextEditingController productnameController = TextEditingController();
+  // // idController = TextEditingController();
+  // TextEditingController descriptionController = TextEditingController();
+  // TextEditingController quantityController = TextEditingController();
+  // TextEditingController uomController = TextEditingController();
+  // TextEditingController unitPriceController = TextEditingController();
 
-  TextEditingController quantityController = TextEditingController();
-  TextEditingController uomController = TextEditingController();
-  TextEditingController unitPriceController = TextEditingController();
-
-  TextEditingController percentOfController = TextEditingController();
-  TextEditingController fixedValueController = TextEditingController();
+  // TextEditingController percentOfController = TextEditingController();
+  // TextEditingController fixedValueController = TextEditingController();
 
   String? fildName,
       fildId,
@@ -101,13 +103,13 @@ class _AddProductState extends State<AddProduct> {
     //   await CustomHttpRequest().getHeaderWithToken(),
     // );
 
-    request.fields['name'] = nameController.text.toString();
-    request.fields['description'] = descriptionController.toString();
-    request.fields['quantity'] = quantityController.text.toString();
-    request.fields['original_price'] = uomController.text.toString();
-    request.fields['discounted_price'] = unitPriceController.text.toString();
-    request.fields['percent_of'] = percentOfController.text.toString();
-    request.fields['fixed_value'] = fixedValueController.text.toString();
+    // request.fields['name'] = productnameController.text.toString();
+    // request.fields['description'] = descriptionController.toString();
+    // request.fields['quantity'] = quantityController.text.toString();
+    // request.fields['original_price'] = uomController.text.toString();
+    // request.fields['discounted_price'] = unitPriceController.text.toString();
+    // request.fields['percent_of'] = percentOfController.text.toString();
+    // request.fields['fixed_value'] = fixedValueController.text.toString();
 
     //for image
     if (image != null) {
@@ -179,7 +181,7 @@ class _AddProductState extends State<AddProduct> {
         centerTitle: true,
       ),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(12),
         //padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: SingleChildScrollView(
           child: Form(
@@ -198,7 +200,7 @@ class _AddProductState extends State<AddProduct> {
                 CustomTextFieldforcustomer(
                   lebelText: 'Customer Name',
                   hintText: 'Enter your Customer name',
-                  controller: nameController,
+                  controller: customernameController,
                   validator: (value) {
                     if (value.isEmpty) {
                       return "*Customername required";
@@ -256,6 +258,49 @@ class _AddProductState extends State<AddProduct> {
                   },
                   validatorFn: (value) {},
                 ),
+                const SizedBox(
+                  height: 12,
+                ),
+
+                const Divider(
+                  thickness: 2,
+                  indent: 7,
+                  endIndent: 7,
+                ),
+
+                const SizedBox(
+                  height: 6,
+                ),
+                const product_widget(),
+
+                const SizedBox(
+                  height: 15,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductInfo(),
+                        ));
+                  },
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF444C60),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Text("Add Products",
+                          style: GoogleFonts.nunito(
+                              color: const Color(0xFFF8F8FF))),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                /*
                 /*const SizedBox(
                   height: 25,
                 ),
@@ -309,7 +354,7 @@ class _AddProductState extends State<AddProduct> {
                   height: 10,
                 ),
                 TextFormField(
-                  controller: nameController,
+                  controller: productnameController,
                   onSaved: (name) {
                     fildName = name;
                   },
@@ -329,6 +374,10 @@ class _AddProductState extends State<AddProduct> {
                               const BorderSide(color: aTextColor, width: 2.5)),
                       hintText: 'Enter Product Name'),
                 ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const addmore(),
                 const SizedBox(
                   height: 20,
                 ),
@@ -586,10 +635,8 @@ class _AddProductState extends State<AddProduct> {
                               const BorderSide(color: aTextColor, width: 2.5)),
                       hintText: 'Enter Subtotal'),
                 ),
+*/
 
-                const SizedBox(
-                  height: 30,
-                ),
                 SizedBox(
                   height: 20,
                   child: Row(
@@ -719,7 +766,7 @@ class _AddProductState extends State<AddProduct> {
                 )),
 */
                 const SizedBox(
-                  height: 45,
+                  height: 35,
                 ),
                 Container(
                   width: double.infinity,
@@ -730,7 +777,7 @@ class _AddProductState extends State<AddProduct> {
                         children: [
                           const Text('Amount Without Discount:'),
                           const Spacer(),
-                          const Text('100.00')
+                          const Text('100000.00')
                         ],
                       ),
                       const SizedBox(
@@ -741,7 +788,7 @@ class _AddProductState extends State<AddProduct> {
                         children: [
                           const Text('Untaxed Amount:'),
                           const Spacer(),
-                          const Text('100.00')
+                          const Text('100000.00')
                         ],
                       ),
                       const SizedBox(
@@ -770,7 +817,7 @@ class _AddProductState extends State<AddProduct> {
                       const Divider(
                         height: 5,
                         thickness: 1,
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 135, 114, 114),
                       ),
                       Row(
                         // ignore: prefer_const_literals_to_create_immutables
@@ -785,7 +832,7 @@ class _AddProductState extends State<AddProduct> {
                           ),
                           const Spacer(),
                           const Text(
-                            '100.00 ৳',
+                            '100000.00 ৳',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -800,7 +847,7 @@ class _AddProductState extends State<AddProduct> {
 
                 //Add Product Button
                 const SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 Container(
                   height: 50,

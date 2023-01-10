@@ -2,8 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:sales_app/Login/login.dart';
-import 'package:sales_app/screens/navigation/navigation_ber.dart';
+import 'package:sales_app/Login%20screen/login.dart';
 
 // ignore: camel_case_types
 class splash_screen extends StatefulWidget {
@@ -37,7 +36,7 @@ class _splash_screenState extends State<splash_screen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                "images/Trivoz.png",
+                "assets/images/Trivoz.png",
                 height: 120,
               ),
               const Text(

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
-import 'package:sales_app/screens/navigation/navigation_ber.dart';
+import 'package:sales_app/Navigation%20Bar/navigation_ber.dart';
 import 'package:sales_app/widgets/custom_TextField.dart';
 import 'package:sales_app/widgets/widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,59 +18,53 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
-  SharedPreferences? sharedPreferences;
-  String? token;
-  String loginLlink = "https://apihomechef.antopolis.xyz/api/admin/sign-in";
+  String loginLink = "https://www.xsellencebdltd.com/web/session/authenticate";
 
+  late SharedPreferences sharedPreferences;
+
+  // check use is login or not if login then goto next page and save user data and one time login
   isLogin() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    token = sharedPreferences!.getString("token");
-    if (token!.isNotEmpty) {
-      // ignore: use_build_context_synchronously
+    if (sharedPreferences.getString("token") != null) {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const Navigation_bar()));
-    } else {}
+    } else {
+      print("Token is empty");
+    }
   }
 
   getLogin() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    var map = <String, dynamic>{};
+    var map = Map<String, dynamic>();
     map["email"] = emailController.text.toString();
     map["password"] = passwordController.text.toString();
     var responce = await http.post(
-      Uri.parse(loginLlink),
+      Uri.parse(loginLink),
       body: map,
     );
-    final data = jsonDecode(responce.body);
     if (responce.statusCode == 200) {
-      setState(() {
-        sharedPreferences!.setString("token", data["access_token"]);
-      });
-      token = sharedPreferences!.getString("token");
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Navigation_bar()));
       showInToast("Login Succesfull");
+      var data = jsonDecode(responce.body);
+      setState(() {
+        sharedPreferences.setString("token", data["access_token"]);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const Navigation_bar()));
+      });
+      token = sharedPreferences.getString("token");
+
+      print("token is $token");
     } else {
-      showInToast("Login Failed");
+      showInToast("Invalid Email or Password");
     }
   }
 
+  String? token;
+
   @override
   void initState() {
-    // ignore: todo
     // TODO: implement initState
     isLogin();
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    // ignore: todo
-    // TODO: implement dispose
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
   }
 
   @override
@@ -104,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     margin: const EdgeInsets.only(top: 50),
                     child: Image.asset(
-                      "images/Trivoz.png",
+                      "assets/images/Trivoz.png",
                       height: 150,
                       width: 150,
                     ),

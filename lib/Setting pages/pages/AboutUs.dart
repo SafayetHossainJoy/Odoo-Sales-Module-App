@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sales_app/screens/navigation/sales/sales_page.dart';
+import 'package:sales_app/Sales%20pages/sales_page.dart';
 
 class About_Us extends StatefulWidget {
   const About_Us({Key? key}) : super(key: key);
@@ -52,7 +52,7 @@ class _About_UsState extends State<About_Us> {
                   height: 200,
                   width: 280,
                   child: Image.asset(
-                    "images/wholesale-business.jpg",
+                    "assets/images/wholesale-business.jpg",
                   ),
                   // Divider(
                   //   color: Colors.black,
